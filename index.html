@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriConnect - Smart Farming</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>🌱 AgriConnect</h1>
+    <p id="tagline">Smart Technology, Better Farming</p>
+    <select id="language" onchange="changeLanguage()">
+        <option value="en">English</option>
+        <option value="te">తెలుగు</option>
+    </select>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#crops">Crops</a>
+    <a href="#weather">Weather</a>
+    <a href="#disease">Diseases</a>
+    <a href="#schemes">Schemes</a>
+</nav>
+
+<section id="home" class="hero">
+    <h2 id="welcome">Welcome to AgriConnect</h2>
+    <p>Digital support for every farmer</p>
+    <a href="#dashboard" class="btn">Get Started</a>
+</section>
+
+<section id="dashboard">
+    <h2>Farmer Dashboard</h2>
+
+    <div class="cards">
+        <div class="card">🌾<h3>Crop Guide</h3>
+        <p>Explore suitable crops</p></div>
+
+        <div class="card">🌤️<h3>Weather</h3>
+        <p>Weather information</p></div>
+
+        <div class="card">🍃<h3>Disease Guide</h3>
+        <p>Crop health awareness</p></div>
+
+        <div class="card">🏛️<h3>Government Schemes</h3>
+        <p>Farmer support information</p></div>
+    </div>
+</section>
+
+<section id="crops">
+    <h2>🌾 Smart Crop Recommendation</h2>
+
+    <label>Soil Type</label>
+    <select id="soil">
+        <option>Black Soil</option>
+        <option>Red Soil</option>
+        <option>Alluvial Soil</option>
+        <option>Sandy Soil</option>
+    </select>
+
+    <label>Season</label>
+    <select id="season">
+        <option>Kharif</option>
+        <option>Rabi</option>
+        <option>Summer</option>
+    </select>
+
+    <label>Water Availability</label>
+    <select id="water">
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+    </select>
+
+    <button onclick="recommendCrop()">Recommend Crops</button>
+
+    <div id="result"></div>
+</section>
+
+<section id="weather">
+    <h2>🌤️ Live Weather Updates</h2>
+    <p>Check local weather conditions for farming.</p>
+
+    <input type="text" id="cityInput"
+           placeholder="Enter your village or city">
+
+    <button onclick="getWeather()">
+        Check Weather
+    </button>
+
+    <div id="weatherResult">
+        Enter your location to check weather.
+    </div>
+</section>
+
+<section id="disease">
+    <h2>🌿 Crop Disease Guide</h2>
+    <p>Select your crop to learn about diseases.</p>
+
+   <h3>📸 capture Your Crop Photo</h3>
+
+<video id="camera" autoplay playsinline
+       style="display:none; width:300px; border-radius:10px;">
+</video>
+
+<canvas id="canvas" style="display:none;"></canvas>
+
+<button onclick="startCamera()">
+    📷 Open Camera
+</button>
+
+<button onclick="capturePhoto()">
+    📸 Capture Photo
+</button>
+
+<img id="cropPreview"
+     alt="Captured Crop Photo"
+     style="display:none; width:250px; margin-top:15px; border-radius:10px;">
+
+    <select id="cropDisease">
+        <option value="">Select Crop</option>
+        <option value="rice">Rice</option>
+        <option value="cotton">Cotton</option>
+        <option value="tomato">Tomato</option>
+        <option value="maize">Maize</option>
+    </select>
+
+    <button onclick="showDisease()">
+        Check Diseases
+    </button>
+
+    <div id="diseaseResult"></div>
+
+    <button onclick="speakDisease()">
+        🔊 తెలుగులో వినండి
+    </button>
+</section>
+
+<section id="schemes">
+    <h2>🏛️ Government Schemes</h2>
+    <p>Find agricultural support and scheme information.</p>
+    <a href="https://agriwelfare.gov.in/" target="_blank">
+        Visit Agriculture Ministry
+    </a>
+</section>
+
+<footer>
+    <p>© 2026 AgriConnect | Smart Farming for a Better Future 🌱</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
